@@ -1,0 +1,38 @@
+0.  BMP supports up to 4,294,967,296 colors. GIF supports 256 colors. JPEG
+    supports up to 16,777,216. PNG supports 16,777,216.
+1.  GIF supports animation.
+2.  Lossless compression allows all data to be recovered. Lossy compression
+    does not.
+3.  JPEG is lossy-compressed.
+4.  The metadata/address associated with the file is erased and the blocks
+    containing the data are listed as empty but the bytes remain unchanged.
+5.  We can use a program to overwrite all of the bytes that were used to store
+    data on the drive with a particular character or pattern.
+6.  stdint.h is a header file that contains type definitions for integer types
+    with fixed widths, i.e. stored on a fixed number of bits.
+7.  These types are useful because other integer types can vary in size from
+    system to system. To write a program that deals with a format like BMP, we
+    need to be able to define integer types that always have the same number of
+    bits no matter what system we are running on.
+8.  A `BYTE` is an 8-bit (one byte) unsigned value. A `DWORD` is a 32-bit (four
+    bytes) unsigned integer. A `LONG` is a 32-bit (four bytes) signed integer.
+    A `WORD` is a 16-bit (two bytes) unsigned integer.
+9.  The first two bytes of any BMP file are `BM` in ASCII or `424d` in hex.
+10. `bfSize` represents the size of the file in bytes. `biSize` represents the
+    size of the `BITMAPINFOHEADER` structure (40 bytes).
+11. If `biHeight` is negative, the bitmap is ordered top-down, starting in the
+    top-left corner.
+12. The BMP's color depth is specified in `biBitCount`.
+13. If the file is not successfully opened, NULL is returned.
+14. We are reading files byte by byte, so each element read from the stream
+    should always be 1 byte long.
+15. If the width of the bitmap in pixels is 3, copy.c will assign `padding` the
+    value of 3, because 3 pixels * 3 bytes per RGBTRIPLE = 9, which is not a
+    multiple of 4, so 3 more bytes of padding are added to get to 12.
+16. The `fseek` function sets the file position indicator of a given stream to
+    a new position relative to either the beginning or end of file or the
+    current position of the indicator. An offset given in bytes is added to one
+    of these values to obtain the new position.
+17. `SEEK_CUR` is the current position indicator; it corresponds to the current
+    position of a stream that is being read from.
+18. Milo Banana dun it.

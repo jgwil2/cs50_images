@@ -1,0 +1,6 @@
+.DS_STORE
+*.o
+bmp/copy
+bmp/resize
+bmp/whodunit
+jpg/recover
